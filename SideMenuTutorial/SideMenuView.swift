@@ -18,11 +18,22 @@ struct SideMenuView: View {
                     .onTapGesture {
                         isShowing.toggle()
                     }
+                
+                HStack {
+                    VStack(alignment: .leading, spacing: 32) {
+                        SideMenuHeaderView()
+                        Spacer()
+                    }
+                    .padding()
+                    .frame(width: 270, alignment: .leading)
+                    .background(.white)
+                    Spacer()
+                }
             }
         }
     }
 }
 
 #Preview {
-    SideMenuView(isShowing: .constant(false))
+    SideMenuView(isShowing: .constant(true))
 }
