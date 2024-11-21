@@ -1,5 +1,5 @@
 //
-//  SwiftMenuHeaderView.swift
+//  SideMenuHeaderView.swift
 //  SideMenuTutorial
 //
 //  Created by 김민지 on 11/20/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SwiftMenuHeaderView: View {
+struct SideMenuHeaderView: View {
     var body: some View {
         HStack {
             Image(systemName: "person.circle.fill")
@@ -30,5 +30,5 @@ struct SwiftMenuHeaderView: View {
 }
 
 #Preview {
-    SwiftMenuHeaderView()
+    SideMenuHeaderView()
 }
