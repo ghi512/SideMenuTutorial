@@ -13,12 +13,16 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack { // 상단 네비게이션바 스택
-            VStack {
-                Image(systemName: "globe")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-                Text("Hello, world!")
+            ZStack {
+                VStack {
+                    Image(systemName: "globe")
+                        .imageScale(.large)
+                        .foregroundStyle(.tint)
+                    Text("Hello, world!")
+                }
+                SideMenuView(isShowing: $showMenu)
             }
+            .toolbar(showMenu ? .hidden : .visible, for: .navigationBar)
             .navigationTitle("Home") // 네비게이션 타이틀
             .navigationBarTitleDisplayMode(.inline) // 네비게이션 안의 인라인으로 설정
             .toolbar { // 사이드 메뉴 누르는 버튼
@@ -30,7 +34,6 @@ struct ContentView: View {
                     })
                 }
             }
-            .padding()
         }
     }
 }
