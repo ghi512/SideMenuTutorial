@@ -31,6 +31,8 @@ struct SideMenuView: View {
                 }
             }
         }
+        .transition(.move(edge: .leading))
+        .animation(.easeInOut, value: isShowing)
     }
 }
 
