@@ -8,19 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showMenu = false // 사이드 메뉴 보일지 여부를 저장하는 변수 선언 - 사이드바 내용은 토글로
-        // 👾 이 변수를 꼭 private로 해야하나? - 하는 게 좋음
+    @State private var showMenu = false
+    @State private var selectedTab = 0
     
     var body: some View {
         NavigationStack { // 상단 네비게이션바 스택
             ZStack {
-                VStack {
-                    Image(systemName: "globe")
-                        .imageScale(.large)
-                        .foregroundStyle(.tint)
-                    Text("Hello, world!")
+                TabView(selection: $selectedTab) {
+                    Text("Dashboard")
+                        .tag(0)
+                    Text("Performance")
+                        .tag(1)
+                    Text("Profile")
+                        .tag(2)
+                    Text("Search")
+                        .tag(3)
+                    Text("Notifications")
+                        .tag(4)
                 }
-                SideMenuView(isShowing: $showMenu)
+                SideMenuView(isShowing: $showMenu, selectedTab: $selectedTab)
             }
             .toolbar(showMenu ? .hidden : .visible, for: .navigationBar)
             .navigationTitle("Home") // 네비게이션 타이틀
