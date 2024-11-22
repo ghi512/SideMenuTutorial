@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct SideMenuRowView: View {
+    let option: SideMenuOptionModel
     var body: some View {
         HStack {
-            Image(systemName: "paperplane")
+            Image(systemName: option.systemImageName)
                 .imageScale(.small)
-            Text("Messages")
+            Text(option.title)
                 .font(.subheadline)
             Spacer()
         }
@@ -23,5 +24,5 @@ struct SideMenuRowView: View {
 }
 
 #Preview {
-    SideMenuRowView()
+    SideMenuRowView(option: .dashboard)
 }
